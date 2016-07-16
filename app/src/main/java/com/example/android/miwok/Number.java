@@ -17,6 +17,8 @@ import java.util.ArrayList;
 
 public class Number extends AppCompatActivity {
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,31 +27,28 @@ public class Number extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         // Create an array of words
-        ArrayList< String> words = new ArrayList<String>();
+        ArrayList< Word> words = new ArrayList<Word>();
 
-                words.add ("ONE");
-                words.add ("TWO");
-                words.add ("THREE");
-                words.add ("Four");
-                words.add ("Five");
-                words.add ("SIX");
-                words.add ("SEVEN");
-                words.add ("EIGHT");
-                words.add ("NINE");
-                words.add ("TEN");
+        words.add(new Word("one","lutti"));
+        words.add(new Word("two","otiko"));
+        words.add(new Word("three","tolook"));
+        words.add(new Word("four","oyyisa"));
+        words.add(new Word("five","massokk"));
+        words.add(new Word("six","temmokka"));
+        words.add(new Word("seven","keneka"));
+        words.add(new Word("eight","kaeint"));
+        words.add(new Word("nine","wo'e"));
+        words.add(new Word("ten","na'aacha"));
+
             // For verification
                 Log.v("Number Activity","Word at index :0" +words.get(0) );
                 // Display using java( Set the rootview)
 
-        ArrayAdapter<String> itemsAdapter = new ArrayAdapter<String>(this, android.R.layout.test_list_item, words);
+        WordAdapter adapter = new WordAdapter(this,words);
 
         ListView listView = (ListView) findViewById(R.id.list);
 
-        listView.setAdapter(itemsAdapter);
-
-
-
-
+        listView.setAdapter(adapter);
 
     }
 
